@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { cities, getCityById } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
+import Programme from "../components/Programme";
 import { cn } from "../utils/cn";
 
 export default function TripPlanner() {
@@ -134,6 +135,8 @@ export default function TripPlanner() {
               </ol>
             )}
           </section>
+
+          {stops.length > 0 && <Programme />}
         </div>
 
         {/* Summary */}
