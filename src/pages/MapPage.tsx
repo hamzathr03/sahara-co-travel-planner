@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CityMap from "../components/CityMap";
 import { cities, getCityById } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
+import { formatDuration, formatLeg, getLegs, sumLegs } from "../utils/route";
 import { cn } from "../utils/cn";
 
 export default function MapPage() {
@@ -11,6 +12,9 @@ export default function MapPage() {
 
   const city = selectedId ? getCityById(selectedId) : undefined;
   const inTrip = city ? stops.some((s) => s.cityId === city.id) : false;
+  const legs = getLegs(stops);
+  const totals = sumLegs(legs);
+  const nameOf = (id: string) => getCityById(id)?.name ?? id;
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
@@ -35,6 +39,32 @@ export default function MapPage() {
               <span className="h-2.5 w-2.5 rounded-full bg-red-600" /> Sélectionnée
             </li>
           </ul>
+
+          {legs.length > 0 ? (
+            <div className="mt-6 rounded-2xl border border-stone-100 bg-white p-6 shadow-sm shadow-stone-900/5">
+              <h2 className="font-serif text-lg font-bold text-stone-900">Votre parcours</h2>
+              <ol className="mt-4 space-y-2 text-sm">
+                {legs.map((leg) => (
+                  <li key={`${leg.fromId}-${leg.toId}`} className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="font-semibold text-stone-800">
+                      {nameOf(leg.fromId)} → {nameOf(leg.toId)}
+                    </span>
+                    <span className="text-stone-500">{formatLeg(leg)}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-4 border-t border-stone-100 pt-3 text-sm font-semibold text-stone-800">
+                Total : ≈ {totals.km} km · {formatDuration(totals.minutes)} de route
+              </p>
+              <p className="mt-1 text-xs text-stone-400">
+                Estimations indicatives, hors pauses et circulation.
+              </p>
+            </div>
+          ) : (
+            <p className="mt-4 text-sm text-stone-400">
+              Ajoutez au moins deux villes à votre voyage pour voir le trajet et les distances.
+            </p>
+          )}
         </div>
 
         <aside className="rounded-2xl border border-stone-100 bg-white p-6 shadow-sm shadow-stone-900/5">

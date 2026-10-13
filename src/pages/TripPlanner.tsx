@@ -1,6 +1,8 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { cities, getCityById } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
+import { formatDuration, formatLeg, getLegs, sumLegs } from "../utils/route";
 import Programme from "../components/Programme";
 import { cn } from "../utils/cn";
 
@@ -9,6 +11,8 @@ export default function TripPlanner() {
 
   const totalDays = stops.reduce((sum, s) => sum + s.days, 0);
   const route = stops.map((s) => getCityById(s.cityId)?.name ?? s.cityId);
+  const legs = getLegs(stops);
+  const totals = sumLegs(legs);
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
@@ -62,8 +66,10 @@ export default function TripPlanner() {
                 {stops.map((s, i) => {
                   const city = getCityById(s.cityId);
                   if (!city) return null;
+                  const leg = legs.find((l) => l.fromId === s.cityId);
                   return (
-                    <li key={s.cityId} className="rounded-xl border border-stone-100 p-4">
+                    <Fragment key={s.cityId}>
+                    <li className="rounded-xl border border-stone-100 p-4">
                       <div className="flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
                           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stone-900 text-sm font-bold text-white">
@@ -130,6 +136,12 @@ export default function TripPlanner() {
                         </div>
                       </div>
                     </li>
+                    {leg && (
+                      <li aria-hidden="true" className="text-center text-xs font-medium text-stone-400">
+                        ↓ {formatLeg(leg)}
+                      </li>
+                    )}
+                    </Fragment>
                   );
                 })}
               </ol>
@@ -154,6 +166,18 @@ export default function TripPlanner() {
                   {totalDays} jour{totalDays > 1 ? "s" : ""}
                 </dd>
               </div>
+              {legs.length > 0 && (
+                <>
+                  <div className="flex justify-between border-t border-stone-100 pt-3">
+                    <dt className="text-stone-400">Distance estimée</dt>
+                    <dd className="font-semibold text-stone-800">≈ {totals.km} km</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-stone-400">Temps de route</dt>
+                    <dd className="font-semibold text-stone-800">≈ {formatDuration(totals.minutes)}</dd>
+                  </div>
+                </>
+              )}
             </dl>
 
             {route.length > 0 && (
@@ -168,6 +192,12 @@ export default function TripPlanner() {
               className="mt-6 block w-full rounded-full bg-gradient-to-r from-amber-500 to-red-600 py-3 text-center text-sm font-bold text-white shadow-md transition hover:brightness-110"
             >
               Estimer le budget
+            </Link>
+            <Link
+              to="/carte"
+              className="mt-3 block text-center text-sm font-semibold text-amber-700 hover:text-amber-800"
+            >
+              Voir le parcours sur la carte
             </Link>
           </div>
         </aside>

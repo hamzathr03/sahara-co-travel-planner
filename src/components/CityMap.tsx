@@ -1,8 +1,9 @@
 import "leaflet/dist/leaflet.css";
-import { CircleMarker, MapContainer, TileLayer, Tooltip } from "react-leaflet";
+import { CircleMarker, MapContainer, Polyline, TileLayer, Tooltip } from "react-leaflet";
 import { cities } from "../data/morocco";
 import { cityCoords } from "../data/coordinates";
 import { useTrip } from "../context/TripContext";
+import { formatLeg, getLegs } from "../utils/route";
 
 interface CityMapProps {
   selectedId: string | null;
@@ -11,6 +12,7 @@ interface CityMapProps {
 
 export default function CityMap({ selectedId, onSelect }: CityMapProps) {
   const { stops } = useTrip();
+  const legs = getLegs(stops);
 
   return (
     <div className="isolate h-[60vh] min-h-[380px] overflow-hidden rounded-2xl border border-stone-100 shadow-sm shadow-stone-900/5">
@@ -27,6 +29,16 @@ export default function CityMap({ selectedId, onSelect }: CityMapProps) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        {legs.map((leg) => (
+          <Polyline
+            key={`${leg.fromId}-${leg.toId}`}
+            positions={[cityCoords[leg.fromId], cityCoords[leg.toId]]}
+            pathOptions={{ color: "#d97706", weight: 3, dashArray: "8 8" }}
+          >
+            <Tooltip sticky>{formatLeg(leg)}</Tooltip>
+          </Polyline>
+        ))}
 
         {cities.map((c) => {
           const position = cityCoords[c.id];
