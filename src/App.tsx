@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import CityDetail from "./pages/CityDetail";
 import TripPlanner from "./pages/TripPlanner";
+import MapPage from "./pages/MapPage";
 import BudgetPlanner from "./pages/BudgetPlanner";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/villes" element={<Cities />} />
               <Route path="/villes/:id" element={<CityDetail />} />
+              <Route path="/carte" element={<MapPage />} />
               <Route path="/planner" element={<TripPlanner />} />
               <Route path="/budget" element={<BudgetPlanner />} />
               <Route path="/contact" element={<Contact />} />
