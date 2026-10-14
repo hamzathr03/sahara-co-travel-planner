@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getCityById, tierLabels, type HotelTier } from "../data/morocco";
-import { useTrip } from "../context/TripContext";
+import { useTrip, type TransportMode } from "../context/TripContext";
+import SaveTrip from "../components/SaveTrip";
 import { getLegs, sumLegs } from "../utils/route";
-
-type TransportMode = "bus" | "train" | "voiture" | "avion";
 
 const transportOptions: Record<TransportMode, { label: string; icon: string; note: string }> = {
   bus: { label: "Bus (CTM, Supratours)", icon: "🚌", note: "≈ 0,40 MAD/km par personne" },
@@ -43,10 +41,8 @@ interface Segment {
 }
 
 export default function BudgetPlanner() {
-  const { stops: trip } = useTrip();
-  const [travelers, setTravelers] = useState(2);
-  const [tier, setTier] = useState<HotelTier>("confort");
-  const [transport, setTransport] = useState<TransportMode>("train");
+  const { stops: trip, settings, updateSettings } = useTrip();
+  const { travelers, tier, transport } = settings;
 
   const rows = trip.flatMap((stop) => {
     const city = getCityById(stop.cityId);
@@ -162,7 +158,7 @@ export default function BudgetPlanner() {
               <div className="mt-2 flex items-center gap-3">
                 <button
                   type="button"
-                  onClick={() => setTravelers((n) => Math.max(1, n - 1))}
+                  onClick={() => updateSettings({ travelers: Math.max(1, travelers - 1) })}
                   aria-label="Retirer un voyageur"
                   className="h-9 w-9 rounded-full bg-stone-100 text-lg font-bold text-stone-700 hover:bg-stone-200"
                 >
@@ -171,7 +167,7 @@ export default function BudgetPlanner() {
                 <span className="w-8 text-center text-lg font-bold text-stone-900">{travelers}</span>
                 <button
                   type="button"
-                  onClick={() => setTravelers((n) => Math.min(12, n + 1))}
+                  onClick={() => updateSettings({ travelers: Math.min(12, travelers + 1) })}
                   aria-label="Ajouter un voyageur"
                   className="h-9 w-9 rounded-full bg-stone-100 text-lg font-bold text-stone-700 hover:bg-stone-200"
                 >
@@ -188,7 +184,7 @@ export default function BudgetPlanner() {
                   <button
                     key={t}
                     type="button"
-                    onClick={() => setTier(t)}
+                    onClick={() => updateSettings({ tier: t })}
                     className={`flex-1 rounded-xl px-3 py-2 text-sm font-bold transition ${
                       tier === t ? "bg-stone-900 text-white" : "bg-stone-100 text-stone-600 hover:bg-stone-200"
                     }`}
@@ -209,7 +205,7 @@ export default function BudgetPlanner() {
                     <button
                       key={key}
                       type="button"
-                      onClick={() => setTransport(key)}
+                      onClick={() => updateSettings({ transport: key })}
                       className={`flex items-start gap-3 rounded-xl border p-3 text-left transition ${
                         transport === key
                           ? "border-amber-600 bg-amber-50 ring-1 ring-amber-200"
@@ -301,6 +297,8 @@ export default function BudgetPlanner() {
                 </p>
               </>
             )}
+
+            <SaveTrip />
           </div>
         </div>
       </div>

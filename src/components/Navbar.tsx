@@ -7,6 +7,7 @@ const links = [
   { to: "/villes", label: "Villes" },
   { to: "/carte", label: "Carte" },
   { to: "/planner", label: "Mon voyage" },
+  { to: "/mes-voyages", label: "Mes voyages" },
   { to: "/budget", label: "Budget" },
   { to: "/contact", label: "Contact" },
 ];
@@ -52,7 +53,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <NavLink
             to="/planner"
-            className="hidden rounded-full bg-gradient-to-r from-orange-600 to-red-700 px-4 py-2 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:brightness-110 sm:inline-block"
+            className="hidden rounded-full bg-gradient-to-r from-orange-600 to-red-700 px-4 py-2 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:brightness-110 xl:inline-block"
           >
             Planifier mon voyage
           </NavLink>

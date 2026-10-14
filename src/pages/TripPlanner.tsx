@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { cities, getCityById } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
+import SaveTrip from "../components/SaveTrip";
 import { formatDuration, formatLeg, getLegs, sumLegs } from "../utils/route";
 import Programme from "../components/Programme";
 import { cn } from "../utils/cn";
@@ -199,6 +200,8 @@ export default function TripPlanner() {
             >
               Voir le parcours sur la carte
             </Link>
+
+            <SaveTrip />
           </div>
         </aside>
       </div>

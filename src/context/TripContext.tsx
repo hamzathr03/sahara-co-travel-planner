@@ -1,11 +1,34 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { getCityById } from "../data/morocco";
+import { getCityById, type HotelTier } from "../data/morocco";
 
 export interface TripStop {
   cityId: string;
   days: number;
   activities: string[]; // selected activity names
   dayOf: Record<string, number>; // activity name -> day index (0-based) inside this city
+}
+
+export type TransportMode = "bus" | "train" | "voiture" | "avion";
+
+export interface TripSettings {
+  travelers: number;
+  tier: HotelTier;
+  transport: TransportMode;
+}
+
+export const DEFAULT_SETTINGS: TripSettings = { travelers: 2, tier: "confort", transport: "train" };
+
+// The saved trip currently being edited (id is null until the first save).
+export interface CurrentTrip {
+  id: string | null;
+  name: string;
+}
+
+interface LoadableTrip {
+  id: string;
+  name: string;
+  stops: TripStop[];
+  settings: TripSettings;
 }
 
 interface TripContextValue {
@@ -19,6 +42,12 @@ interface TripContextValue {
   removeActivity: (cityId: string, activityName: string) => void;
   moveActivity: (cityId: string, activityName: string, day: number) => void;
   generateProgramme: () => void;
+  settings: TripSettings;
+  updateSettings: (patch: Partial<TripSettings>) => void;
+  currentTrip: CurrentTrip;
+  setCurrentTrip: (trip: CurrentTrip) => void;
+  loadTrip: (trip: LoadableTrip) => void;
+  resetTrip: () => void;
 }
 
 const TripContext = createContext<TripContextValue | null>(null);
@@ -47,6 +76,24 @@ function withoutActivity(stop: TripStop, name: string): TripStop {
 
 export function TripProvider({ children }: { children: ReactNode }) {
   const [stops, setStops] = useState<TripStop[]>([]);
+  const [settings, setSettings] = useState<TripSettings>(DEFAULT_SETTINGS);
+  const [currentTrip, setCurrentTrip] = useState<CurrentTrip>({ id: null, name: "Mon voyage" });
+
+  function updateSettings(patch: Partial<TripSettings>) {
+    setSettings((prev) => ({ ...prev, ...patch }));
+  }
+
+  function loadTrip(trip: LoadableTrip) {
+    setStops(trip.stops);
+    setSettings(trip.settings);
+    setCurrentTrip({ id: trip.id, name: trip.name });
+  }
+
+  function resetTrip() {
+    setStops([]);
+    setSettings(DEFAULT_SETTINGS);
+    setCurrentTrip({ id: null, name: "Mon voyage" });
+  }
 
   function updateStop(cityId: string, fn: (stop: TripStop) => TripStop) {
     setStops((prev) => prev.map((s) => (s.cityId === cityId ? fn(s) : s)));
@@ -134,6 +181,12 @@ export function TripProvider({ children }: { children: ReactNode }) {
         removeActivity,
         moveActivity,
         generateProgramme,
+        settings,
+        updateSettings,
+        currentTrip,
+        setCurrentTrip,
+        loadTrip,
+        resetTrip,
       }}
     >
       {children}
