@@ -7,6 +7,7 @@ import Cities from "./pages/Cities";
 import CityDetail from "./pages/CityDetail";
 import TripPlanner from "./pages/TripPlanner";
 import MapPage from "./pages/MapPage";
+import SupabaseCheck from "./pages/SupabaseCheck";
 import BudgetPlanner from "./pages/BudgetPlanner";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -36,6 +37,7 @@ export default function App() {
               <Route path="/planner" element={<TripPlanner />} />
               <Route path="/budget" element={<BudgetPlanner />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/test-supabase" element={<SupabaseCheck />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
