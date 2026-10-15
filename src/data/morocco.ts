@@ -73,11 +73,12 @@ export const cities: City[] = [
       },
     ],
     activities: [
-      { name: "Visite guidée de la médina & souks", price: 150, duration: "3h", category: "Culture", description: "Découverte des ruelles, artisans et souks traditionnels avec guide local." },
-      { name: "Excursion vallée de l'Ourika", price: 300, duration: "Journée", category: "Nature", description: "Randonnée dans l'Atlas et visite des cascades de Setti Fatma." },
-      { name: "Balade en montgolfière au lever du soleil", price: 1300, duration: "4h", category: "Aventure", description: "Survol de la palmeraie et des montagnes de l'Atlas." },
-      { name: "Spectacle & dîner à Chez Ali", price: 450, duration: "Soirée", category: "Divertissement", description: "Fantasia équestre, danses et dîner traditionnel sous tente caïdale." },
-      { name: "Hammam & spa traditionnel", price: 250, duration: "1h30", category: "Bien-être", description: "Gommage au savon noir et massage à l'huile d'argan." },
+      { name: "Visite guidée de la médina & souks", price: 250, duration: "3h", category: "Culture", description: "Marche guidée dans la médina et les souks avec un guide agréé. Les entrées des monuments ne sont généralement pas incluses." },
+      { name: "Jardin Majorelle & musée berbère", price: 150, duration: "1h30", category: "Culture", description: "Jardin créé par le peintre Jacques Majorelle puis restauré par Yves Saint Laurent. Billet à réserver en ligne de préférence." },
+      { name: "Excursion vallée de l'Ourika", price: 250, duration: "Journée", category: "Nature", description: "Villages berbères et marche vers les cascades de Setti Fatma. Le déjeuner est inclus ou non selon l'offre." },
+      { name: "Balade en montgolfière au lever du soleil", price: 1900, duration: "4h à 6h", category: "Aventure", description: "Vol d'environ une heure au-dessus de la plaine de Marrakech, avec vue sur l'Atlas. Petit-déjeuner et transfert depuis l'hôtel selon l'offre." },
+      { name: "Spectacle & dîner à Chez Ali", price: 700, duration: "Soirée", category: "Divertissement", description: "Dîner marocain et spectacle de fantasia dans la palmeraie. Transfert depuis l'hôtel selon l'offre." },
+      { name: "Hammam & spa traditionnel", price: 250, duration: "1h30", category: "Bien-être", description: "Gommage au savon noir et massage. Comptez 10 à 45 MAD pour un hammam public, 250 à 550 MAD pour un hammam-spa avec soins." },
     ],
   },
   {
