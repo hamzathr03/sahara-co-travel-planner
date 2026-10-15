@@ -1,7 +1,14 @@
 import { useState } from "react";
+import { siteConfig } from "../config/site";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+
+  const contactItems = [
+    { icon: "📍", label: "Adresse", value: siteConfig.address },
+    { icon: "✉️", label: "Email", value: siteConfig.email },
+    { icon: "📞", label: "Téléphone / WhatsApp", value: siteConfig.phone },
+  ].filter((item) => item.value);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -14,28 +21,27 @@ export default function Contact() {
         <p className="text-sm font-bold uppercase tracking-widest text-amber-700">Contact</p>
         <h1 className="mt-2 font-serif text-4xl font-bold text-stone-900">Une question sur votre voyage ?</h1>
         <p className="mt-4 text-stone-500">
-          Notre équipe de spécialistes du Maroc vous répond rapidement pour vous aider à organiser le
-          séjour parfait.
+          Une question, une suggestion ou un projet de voyage ? Écrivez-nous.
         </p>
       </div>
 
       <div className="mt-12 grid gap-8 md:grid-cols-5">
         <div className="space-y-5 md:col-span-2">
-          <div className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm shadow-stone-900/5">
-            <p className="text-2xl">📍</p>
-            <p className="mt-2 font-bold text-stone-900">Bureau</p>
-            <p className="text-sm text-stone-500">Avenue Mohammed VI, Marrakech, Maroc</p>
-          </div>
-          <div className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm shadow-stone-900/5">
-            <p className="text-2xl">✉️</p>
-            <p className="mt-2 font-bold text-stone-900">Email</p>
-            <p className="text-sm text-stone-500">contact@saharaco-travel.ma</p>
-          </div>
-          <div className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm shadow-stone-900/5">
-            <p className="text-2xl">📞</p>
-            <p className="mt-2 font-bold text-stone-900">Téléphone / WhatsApp</p>
-            <p className="text-sm text-stone-500">+212 5 24 00 00 00</p>
-          </div>
+          {contactItems.length > 0 ? (
+            contactItems.map((item) => (
+              <div key={item.label} className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm shadow-stone-900/5">
+                <p className="text-2xl">{item.icon}</p>
+                <p className="mt-2 font-bold text-stone-900">{item.label}</p>
+                <p className="text-sm text-stone-500">{item.value}</p>
+              </div>
+            ))
+          ) : (
+            <div className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm shadow-stone-900/5">
+              <p className="text-2xl">✉️</p>
+              <p className="mt-2 font-bold text-stone-900">Écrivez-nous</p>
+              <p className="text-sm text-stone-500">Utilisez le formulaire pour nous envoyer votre message.</p>
+            </div>
+          )}
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border border-stone-100 bg-white p-6 shadow-sm shadow-stone-900/5 md:col-span-3">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { cities } from "../data/morocco";
+import { cities, tierLabels } from "../data/morocco";
 import CityCard from "../components/CityCard";
 
 const steps = [
@@ -26,10 +26,10 @@ const steps = [
 ];
 
 const stats = [
-  { label: "Villes couvertes", value: "8+" },
-  { label: "Hôtels référencés", value: "24+" },
-  { label: "Activités proposées", value: "35+" },
-  { label: "Voyageurs satisfaits", value: "12K+" },
+  { label: "Villes couvertes", value: String(cities.length) },
+  { label: "Activités proposées", value: String(cities.reduce((n, c) => n + c.activities.length, 0)) },
+  { label: "Niveaux de confort", value: String(Object.keys(tierLabels).length) },
+  { label: "Régions traversées", value: String(new Set(cities.map((c) => c.region)).size) },
 ];
 
 export default function Home() {
@@ -146,7 +146,7 @@ export default function Home() {
             Combien coûte un voyage au Maroc ? Calculez-le en 2 minutes.
           </h2>
           <p className="relative mx-auto mt-4 max-w-xl text-stone-300">
-            Sélectionnez vos villes, vos dates, le nombre de voyageurs et votre niveau de confort :
+            Sélectionnez vos villes, la durée du séjour, le nombre de voyageurs et votre niveau de confort :
             obtenez une estimation détaillée (hébergement, nourriture, activités, transport).
           </p>
           <Link

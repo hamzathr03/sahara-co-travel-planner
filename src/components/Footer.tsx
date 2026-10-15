@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { siteConfig } from "../config/site";
 import { cities } from "../data/morocco";
 
 export default function Footer() {
@@ -45,9 +46,12 @@ export default function Footer() {
         <div>
           <p className="mb-3 text-sm font-bold uppercase tracking-wider text-amber-500">Contact</p>
           <ul className="space-y-2 text-sm text-stone-400">
-            <li>📍 Marrakech, Maroc</li>
-            <li>✉️ contact@saharaco-travel.ma</li>
-            <li>📞 +212 5 24 00 00 00</li>
+            {siteConfig.address && <li>📍 {siteConfig.address}</li>}
+            {siteConfig.email && <li>✉️ {siteConfig.email}</li>}
+            {siteConfig.phone && <li>📞 {siteConfig.phone}</li>}
+            <li>
+              <Link to="/contact" className="transition hover:text-amber-400">Formulaire de contact</Link>
+            </li>
           </ul>
         </div>
       </div>
