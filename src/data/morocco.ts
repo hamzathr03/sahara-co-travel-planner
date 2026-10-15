@@ -99,10 +99,10 @@ export const cities: City[] = [
       { name: "Palais Fassi Luxe", tier: "luxe", pricePerNight: 1900, rating: 4.8, description: "Ancien palais royal transformé en hôtel de luxe avec spa." },
     ],
     activities: [
-      { name: "Visite des tanneries Chouara", price: 100, duration: "1h30", category: "Culture", description: "Observation du tannage traditionnel du cuir depuis les terrasses." },
-      { name: "Tour de la médina avec guide", price: 180, duration: "4h", category: "Culture", description: "Exploration des médersas, souks et monuments historiques." },
-      { name: "Cours de cuisine marocaine", price: 350, duration: "4h", category: "Gastronomie", description: "Préparation d'un tajine et de pâtisseries avec un chef local." },
-      { name: "Excursion à Meknès & Volubilis", price: 400, duration: "Journée", category: "Histoire", description: "Visite de la ville impériale et des ruines romaines de Volubilis." },
+      { name: "Visite des tanneries Chouara", price: 0, duration: "1h", category: "Culture", description: "Vue sur les cuves de teinture depuis les terrasses des boutiques de cuir. L'accès est généralement gratuit, avec un pourboire d'usage." },
+      { name: "Tour de la médina avec guide", price: 180, duration: "4h", category: "Culture", description: "Marche guidée dans la médina : médersas, souks, fontaine Nejjarine. Les entrées des monuments sont en supplément (environ 20 à 40 MAD chacune)." },
+      { name: "Cours de cuisine marocaine", price: 500, duration: "3h à 4h", category: "Gastronomie", description: "Visite du marché, préparation d'un tajine et de salades avec un cuisinier local, puis repas partagé." },
+      { name: "Excursion à Meknès & Volubilis", price: 400, duration: "Journée", category: "Histoire", description: "Meknès, ville impériale, et ruines romaines de Volubilis (site UNESCO). Les entrées des sites sont souvent en supplément." },
     ],
   },
   {
@@ -123,10 +123,10 @@ export const cities: City[] = [
       { name: "Lodge Rif Luxe", tier: "luxe", pricePerNight: 1400, rating: 4.7, description: "Lodge de charme en périphérie avec piscine et vue sur les montagnes du Rif." },
     ],
     activities: [
-      { name: "Randonnée aux cascades d'Akchour", price: 200, duration: "Journée", category: "Nature", description: "Randonnée guidée jusqu'au pont de Dieu et aux cascades." },
-      { name: "Balade photo dans la médina bleue", price: 120, duration: "2h", category: "Culture", description: "Parcours des plus belles ruelles bleues avec guide photographe." },
-      { name: "Visite de la Kasbah & musée", price: 80, duration: "1h", category: "Histoire", description: "Découverte de la forteresse du 15e siècle et de son musée ethnographique." },
-      { name: "Atelier tissage berbère", price: 150, duration: "2h", category: "Artisanat", description: "Initiation au tissage traditionnel avec des artisanes locales." },
+      { name: "Randonnée aux cascades d'Akchour", price: 300, duration: "Journée", category: "Nature", description: "Trajet en taxi d'environ 35 min depuis Chefchaouen, puis environ 2 h de marche avec un guide. Le débit des cascades varie selon la saison." },
+      { name: "Visite guidée de la médina bleue", price: 400, duration: "2h30", category: "Culture", description: "Ruelles bleues, place Outa el Hammam et source Ras el-Maa avec un guide local. L'entrée de la Kasbah n'est pas incluse." },
+      { name: "Visite de la Kasbah & musée", price: 80, duration: "1h", category: "Histoire", description: "Forteresse fondée au 15e siècle sur la place Outa el Hammam, avec jardin, tour panoramique et musée ethnographique. Le tarif étranger observé va de 60 à 100 MAD." },
+      { name: "Atelier tissage berbère", price: 450, duration: "1h30", category: "Artisanat", description: "Initiation au tissage sur métier traditionnel avec des artisans locaux." },
     ],
   },
   {
