@@ -4,6 +4,7 @@ import { getCityById, tierLabels, type HotelTier } from "../data/morocco";
 import CityCard from "../components/CityCard";
 import { cities } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
+import { dailyBudgetPerPerson } from "../data/costs";
 
 const tierColors: Record<HotelTier, string> = {
   economique: "bg-emerald-50 text-emerald-700 ring-emerald-100",
@@ -66,17 +67,20 @@ export default function CityDetail() {
               </div>
               <div className="flex justify-between border-b border-stone-100 pb-2">
                 <dt className="text-stone-400">Budget économique / jour</dt>
-                <dd className="font-semibold text-stone-800">{city.avgDailyBudget.economique} MAD</dd>
+                <dd className="font-semibold text-stone-800">≈ {dailyBudgetPerPerson(city, "economique")} MAD</dd>
               </div>
               <div className="flex justify-between border-b border-stone-100 pb-2">
                 <dt className="text-stone-400">Budget confort / jour</dt>
-                <dd className="font-semibold text-stone-800">{city.avgDailyBudget.confort} MAD</dd>
+                <dd className="font-semibold text-stone-800">≈ {dailyBudgetPerPerson(city, "confort")} MAD</dd>
               </div>
               <div className="flex justify-between pb-1">
                 <dt className="text-stone-400">Budget luxe / jour</dt>
-                <dd className="font-semibold text-stone-800">{city.avgDailyBudget.luxe} MAD</dd>
+                <dd className="font-semibold text-stone-800">≈ {dailyBudgetPerPerson(city, "luxe")} MAD</dd>
               </div>
             </dl>
+            <p className="mt-3 text-xs leading-relaxed text-stone-400">
+              Estimation par personne pour deux voyageurs dans une chambre double (hébergement, repas et transport local).
+            </p>
             <button
               onClick={() => {
                 addStop(city.id);
@@ -92,7 +96,7 @@ export default function CityDetail() {
         {/* Hotels */}
         <div className="mt-16">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="font-serif text-2xl font-bold text-stone-900">Hôtels recommandés 🏨</h2>
+            <h2 className="font-serif text-2xl font-bold text-stone-900">Où dormir 🏨</h2>
             <div className="flex gap-2">
               {(["toutes", "economique", "confort", "luxe"] as const).map((t) => (
                 <button
@@ -109,20 +113,27 @@ export default function CityDetail() {
               ))}
             </div>
           </div>
+          <p className="mt-3 text-sm text-stone-400">
+            Types d'hébergement et fourchettes de prix indicatives, d'après des guides de voyage. Les tarifs réels dépendent de la saison et de la disponibilité.
+          </p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {hotels.map((h) => (
               <div key={h.name} className="flex flex-col rounded-2xl border border-stone-100 bg-white p-6 shadow-sm shadow-stone-900/5 transition hover:shadow-md">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-serif text-lg font-bold text-stone-900">{h.name}</h3>
-                  <span className="shrink-0 text-sm font-bold text-amber-600">★ {h.rating}</span>
                 </div>
                 <span className={`mt-2 w-fit rounded-full px-2.5 py-1 text-xs font-bold ring-1 ${tierColors[h.tier]}`}>
                   {tierLabels[h.tier]}
                 </span>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-stone-500">{h.description}</p>
-                <div className="mt-4 flex items-end justify-between border-t border-stone-100 pt-3">
-                  <span className="text-xs text-stone-400">Prix par nuit</span>
-                  <span className="font-serif text-xl font-bold text-stone-900">{h.pricePerNight} MAD</span>
+                <div className="mt-4 border-t border-stone-100 pt-3">
+                  <div className="flex items-end justify-between">
+                    <span className="text-xs text-stone-400">Chambre double, par nuit</span>
+                    <span className="font-serif text-xl font-bold text-stone-900">≈ {h.pricePerNight} MAD</span>
+                  </div>
+                  <p className="mt-1 text-right text-xs text-stone-400">
+                    Fourchette : {h.priceRange[0]} à {h.priceRange[1]} MAD
+                  </p>
                 </div>
               </div>
             ))}

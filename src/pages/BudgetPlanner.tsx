@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getCityById, tierLabels, type HotelTier } from "../data/morocco";
+import { foodPerDay, localTransportPerDay } from "../data/costs";
 import { useTrip, type TransportMode } from "../context/TripContext";
 import SaveTrip from "../components/SaveTrip";
 import { getLegs, sumLegs } from "../utils/route";
@@ -23,8 +24,6 @@ const tierInfo: Record<HotelTier, string> = {
   luxe: "Palaces et riads de charme, tables gastronomiques, chauffeur privé en ville.",
 };
 
-const foodPerDay: Record<HotelTier, number> = { economique: 120, confort: 250, luxe: 500 };
-const localTransportPerDay: Record<HotelTier, number> = { economique: 40, confort: 90, luxe: 200 };
 const MAD_TO_EUR = 0.092;
 const MAD_TO_USD = 0.1;
 
@@ -141,7 +140,7 @@ export default function BudgetPlanner() {
                       </div>
                     </div>
                     <p className="text-xs text-stone-500">
-                      {hotel.name} · {hotel.pricePerNight} MAD/nuit
+                      {hotel.name} · ≈ {hotel.pricePerNight} MAD/nuit
                     </p>
                   </li>
                 ))}

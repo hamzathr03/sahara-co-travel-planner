@@ -86,3 +86,29 @@ Non vérifiés (anciennes valeurs conservées) : Journée plage & sports nautiqu
 | Balade en quad (nouveau) | 490 MAD | ≈ 45 EUR par personne (1 h) | Offre Lokalee. |
 
 Non vérifiés (anciennes valeurs conservées) : Trek en dromadaire au coucher du soleil (250 MAD), Sandboard sur les dunes (150 MAD), Excursion 4x4 dans le désert (450 MAD). Le sandboard est souvent inclus dans la nuit en bivouac.
+
+## Hébergement
+
+Les 24 hôtels fictifs (noms inventés, notes sur 5 sans source) ont été remplacés par **des types d'hébergement avec fourchette de prix**. Les prix sont ceux d'une **chambre double par nuit**, en MAD (1 USD ≈ 9,5 MAD).
+
+Sources des fourchettes générales (guides de voyage 2026) :
+- Smartertravel : riads économiques à Marrakech 25 à 50 USD, riads de gamme moyenne 60 à 120 USD ; Chefchaouen dès 12 USD, Fès deuxième meilleur rapport qualité-prix.
+- Trip.com : hôtels économiques 20 à 50 USD ; grandes villes (Marrakech, Casablanca, Fès) gamme moyenne 80 à 120 USD et luxe 150 à 300 USD ; autres villes gamme moyenne 50 à 80 USD et luxe 100 à 200 USD.
+- Travorio : hôtels et maisons d'hôtes économiques à Fès et Casablanca 30 à 60 USD ; riads de gamme moyenne 80 à 130 USD ; palaces de Marrakech 400 à 900 USD en haute saison.
+- ETravelSim : bons riads 60 à 100 USD, propriétés de luxe 200 à 400 USD ; riad moyen à Fès ≈ 78 USD.
+- Camps de Merzouga : offres Expedia / Travelocity (nuit en camp standard 75 à 112 USD, camp de luxe 125 à 150 USD, dîner et petit-déjeuner inclus).
+
+| Ville | Économique | Confort | Luxe |
+|---|---|---|---|
+| Marrakech | 350 (250-480) | 850 (600-1 150) | 2 800 (1 900-3 800) |
+| Fès | 400 (250-570) | 750 (600-1 200) | 2 500 (1 900-3 800) |
+| Chefchaouen | 200 (115-300) | 600 (475-760) | 1 400 (950-1 900) |
+| Essaouira | 300 (190-475) | 600 (475-760) | 1 500 (950-1 900) |
+| Casablanca | 420 (285-570) | 950 (760-1 140) | 2 100 (1 425-2 850) |
+| Rabat | 300 (190-475) | 600 (475-760) | 1 500 (950-1 900) |
+| Agadir | 300 (190-475) | 600 (475-760) | 1 500 (950-1 900) |
+| Merzouga | 250 (150-350) | 600 (475-760) | 1 500 (1 200-2 400) |
+
+Limites : les guides donnent des fourchettes par gamme et non par ville. Marrakech, Fès, Chefchaouen et Casablanca ont des chiffres ou des remarques propres ; **Essaouira, Rabat, Agadir et Merzouga reprennent la fourchette générale « autres villes »** (Merzouga économique : estimation non sourcée). Le prix typique est une valeur choisie dans la fourchette.
+
+Budget par jour affiché sur les pages des villes : il est maintenant **calculé** (moitié d'une chambre double + repas + transport local, par personne) avec les mêmes hypothèses que le planificateur de budget, au lieu des anciennes valeurs saisies à la main.

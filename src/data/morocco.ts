@@ -3,8 +3,8 @@ export type HotelTier = "economique" | "confort" | "luxe";
 export interface Hotel {
   name: string;
   tier: HotelTier;
-  pricePerNight: number; // MAD, per room/night (double)
-  rating: number; // out of 5
+  pricePerNight: number; // MAD, typical price per night for a double room (used by the budget)
+  priceRange: [number, number]; // MAD, observed range per night (double room)
   description: string;
 }
 
@@ -25,7 +25,6 @@ export interface City {
   image: string;
   highlights: string[];
   bestTime: string;
-  avgDailyBudget: { economique: number; confort: number; luxe: number };
   hotels: Hotel[];
   activities: Activity[];
 }
@@ -48,29 +47,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/25489943/pexels-photo-25489943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Jemaa el-Fna", "Jardin Majorelle", "Médina & Souks", "Palais Bahia"],
     bestTime: "Mars - Mai / Sept - Nov",
-    avgDailyBudget: { economique: 350, confort: 700, luxe: 1800 },
     hotels: [
-      {
-        name: "Riad Dar Zellij",
-        tier: "economique",
-        pricePerNight: 280,
-        rating: 4.2,
-        description: "Riad authentique au cœur de la médina, patio traditionnel et petit-déjeuner berbère.",
-      },
-      {
-        name: "Riad Atlas Confort",
-        tier: "confort",
-        pricePerNight: 650,
-        rating: 4.5,
-        description: "Riad rénové avec piscine, terrasse panoramique et hammam privé.",
-      },
-      {
-        name: "Palace Majorelle Luxe",
-        tier: "luxe",
-        pricePerNight: 2200,
-        rating: 4.9,
-        description: "Palace 5 étoiles, spa primé, suites avec jardins privés et service de majordome.",
-      },
+      { name: "Riad ou hôtel simple", tier: "economique", pricePerNight: 350, priceRange: [250, 480], description: "Chambre simple dans la médina ou en ville nouvelle, équipement de base. Comptez environ 250 à 480 MAD la nuit pour une chambre double." },
+      { name: "Riad de charme", tier: "confort", pricePerNight: 850, priceRange: [600, 1150], description: "Riad restauré autour d'un patio, avec terrasse. Le petit-déjeuner est souvent inclus. Comptez environ 600 à 1150 MAD la nuit pour une chambre double." },
+      { name: "Riad de luxe ou palace", tier: "luxe", pricePerNight: 2800, priceRange: [1900, 3800], description: "Riads haut de gamme et palaces avec spa et piscine. Les plus grands palaces dépassent largement la fourchette. Comptez environ 1900 à 3800 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Visite guidée de la médina & souks", price: 250, duration: "3h", category: "Culture", description: "Marche guidée dans la médina et les souks avec un guide agréé. Les entrées des monuments ne sont généralement pas incluses." },
@@ -92,11 +72,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/38112164/pexels-photo-38112164.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Tanneries Chouara", "Médersa Bou Inania", "Université Al Quaraouiyine", "Bab Boujloud"],
     bestTime: "Avril - Juin / Sept - Oct",
-    avgDailyBudget: { economique: 300, confort: 600, luxe: 1500 },
     hotels: [
-      { name: "Dar Fes Authentique", tier: "economique", pricePerNight: 250, rating: 4.1, description: "Maison d'hôtes familiale dans la médina, ambiance chaleureuse." },
-      { name: "Riad Medina Confort", tier: "confort", pricePerNight: 550, rating: 4.4, description: "Riad restauré avec patio fleuri et restaurant gastronomique." },
-      { name: "Palais Fassi Luxe", tier: "luxe", pricePerNight: 1900, rating: 4.8, description: "Ancien palais royal transformé en hôtel de luxe avec spa." },
+      { name: "Maison d'hôtes ou hôtel simple", tier: "economique", pricePerNight: 400, priceRange: [250, 570], description: "Maison d'hôtes familiale ou petit hôtel, dans la médina ou à proximité. Comptez environ 250 à 570 MAD la nuit pour une chambre double." },
+      { name: "Riad de charme", tier: "confort", pricePerNight: 750, priceRange: [600, 1200], description: "Riad restauré avec patio et terrasse, dans la médina de Fès. Comptez environ 600 à 1200 MAD la nuit pour une chambre double." },
+      { name: "Riad de luxe", tier: "luxe", pricePerNight: 2500, priceRange: [1900, 3800], description: "Riad ou palais transformé en hôtel haut de gamme, avec spa. Comptez environ 1900 à 3800 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Visite des tanneries Chouara", price: 0, duration: "1h", category: "Culture", description: "Vue sur les cuves de teinture depuis les terrasses des boutiques de cuir. L'accès est généralement gratuit, avec un pourboire d'usage." },
@@ -116,11 +95,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/25070537/pexels-photo-25070537.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Médina bleue", "Place Outa el Hammam", "Cascades d'Akchour", "Kasbah Museum"],
     bestTime: "Avril - Juin / Sept - Oct",
-    avgDailyBudget: { economique: 250, confort: 500, luxe: 1200 },
     hotels: [
-      { name: "Dar Azul Hostel", tier: "economique", pricePerNight: 200, rating: 4.0, description: "Guesthouse colorée avec vue sur les montagnes, ambiance backpacker." },
-      { name: "Riad Cherifa Confort", tier: "confort", pricePerNight: 480, rating: 4.5, description: "Riad bleu typique avec terrasse panoramique sur la médina." },
-      { name: "Lodge Rif Luxe", tier: "luxe", pricePerNight: 1400, rating: 4.7, description: "Lodge de charme en périphérie avec piscine et vue sur les montagnes du Rif." },
+      { name: "Maison d'hôtes simple", tier: "economique", pricePerNight: 200, priceRange: [115, 300], description: "Chambre simple dans la médina bleue, l'hébergement le plus abordable du pays. Comptez environ 115 à 300 MAD la nuit pour une chambre double." },
+      { name: "Riad de charme", tier: "confort", pricePerNight: 600, priceRange: [475, 760], description: "Riad ou maison d'hôtes confortable, avec terrasse et vue sur la ville. Comptez environ 475 à 760 MAD la nuit pour une chambre double." },
+      { name: "Boutique-hôtel haut de gamme", tier: "luxe", pricePerNight: 1400, priceRange: [950, 1900], description: "Hôtel de charme avec services haut de gamme. L'offre de luxe est limitée. Comptez environ 950 à 1900 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Randonnée aux cascades d'Akchour", price: 300, duration: "Journée", category: "Nature", description: "Trajet en taxi d'environ 35 min depuis Chefchaouen, puis environ 2 h de marche avec un guide. Le débit des cascades varie selon la saison." },
@@ -140,11 +118,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/37442059/pexels-photo-37442059.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Remparts & Skala", "Port de pêche", "Plage d'Essaouira", "Médina UNESCO"],
     bestTime: "Mai - Sept",
-    avgDailyBudget: { economique: 300, confort: 600, luxe: 1400 },
     hotels: [
-      { name: "Dar Mogador", tier: "economique", pricePerNight: 260, rating: 4.1, description: "Maison d'hôtes simple proche des remparts, accueil chaleureux." },
-      { name: "Riad Atlantique Confort", tier: "confort", pricePerNight: 580, rating: 4.4, description: "Riad avec vue mer, terrasse et petit-déjeuner inclus." },
-      { name: "Villa Ocean Luxe", tier: "luxe", pricePerNight: 1700, rating: 4.8, description: "Villa de luxe en bord de plage avec piscine chauffée et spa." },
+      { name: "Riad ou hôtel simple", tier: "economique", pricePerNight: 300, priceRange: [190, 475], description: "Chambre simple dans la médina ou près de la plage. Comptez environ 190 à 475 MAD la nuit pour une chambre double." },
+      { name: "Riad de charme", tier: "confort", pricePerNight: 600, priceRange: [475, 760], description: "Riad restauré avec terrasse, dans la médina d'Essaouira. Comptez environ 475 à 760 MAD la nuit pour une chambre double." },
+      { name: "Hôtel ou riad de luxe", tier: "luxe", pricePerNight: 1500, priceRange: [950, 1900], description: "Hôtel haut de gamme face à l'océan ou riad de luxe avec spa. Comptez environ 950 à 1900 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Cours de surf", price: 350, duration: "2h", category: "Sport", description: "Cours collectif de 2 heures, planche et combinaison fournies. Comptez 270 à 550 MAD selon l'école et la taille du groupe." },
@@ -165,11 +142,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/6587429/pexels-photo-6587429.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Mosquée Hassan II", "Corniche d'Aïn Diab", "Quartier Habous", "Art déco du centre-ville"],
     bestTime: "Toute l'année",
-    avgDailyBudget: { economique: 350, confort: 750, luxe: 2000 },
     hotels: [
-      { name: "Hôtel Centre Ville", tier: "economique", pricePerNight: 300, rating: 4.0, description: "Hôtel simple et bien situé près du centre-ville historique." },
-      { name: "Hôtel Corniche Confort", tier: "confort", pricePerNight: 700, rating: 4.4, description: "Hôtel moderne avec piscine sur la corniche d'Aïn Diab." },
-      { name: "Four Seasons Style Luxe", tier: "luxe", pricePerNight: 2500, rating: 4.9, description: "Hôtel 5 étoiles vue mer avec spa, rooftop et restaurants gastronomiques." },
+      { name: "Hôtel simple", tier: "economique", pricePerNight: 420, priceRange: [285, 570], description: "Hôtel de catégorie économique, en centre-ville ou près de la gare. Comptez environ 285 à 570 MAD la nuit pour une chambre double." },
+      { name: "Hôtel 4 étoiles", tier: "confort", pricePerNight: 950, priceRange: [760, 1140], description: "Hôtel de catégorie supérieure en centre-ville ou en bord de mer. Comptez environ 760 à 1140 MAD la nuit pour une chambre double." },
+      { name: "Hôtel 5 étoiles", tier: "luxe", pricePerNight: 2100, priceRange: [1425, 2850], description: "Grand hôtel 5 étoiles avec spa, restaurants et services complets. Comptez environ 1425 à 2850 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Visite guidée de la Mosquée Hassan II", price: 140, duration: "1h", category: "Culture", description: "Visite guidée officielle, obligatoire pour les non-musulmans, d'environ 45 minutes. Le tarif adulte étranger est de 130 à 140 MAD selon la page officielle." },
@@ -188,11 +164,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/37229546/pexels-photo-37229546.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Kasbah des Oudayas", "Tour Hassan", "Mausolée Mohammed V", "Médina de Rabat"],
     bestTime: "Mars - Juin / Sept - Nov",
-    avgDailyBudget: { economique: 300, confort: 600, luxe: 1600 },
     hotels: [
-      { name: "Dar Rabat Simple", tier: "economique", pricePerNight: 260, rating: 4.0, description: "Maison d'hôtes conviviale proche de la médina." },
-      { name: "Riad Oudayas Confort", tier: "confort", pricePerNight: 600, rating: 4.5, description: "Riad élégant près de la Kasbah avec vue sur l'estuaire du Bouregreg." },
-      { name: "Sofitel Style Luxe", tier: "luxe", pricePerNight: 2000, rating: 4.8, description: "Hôtel 5 étoiles au cœur de la capitale avec spa et piscine extérieure." },
+      { name: "Maison d'hôtes ou hôtel simple", tier: "economique", pricePerNight: 300, priceRange: [190, 475], description: "Chambre simple, en médina ou en ville nouvelle. Comptez environ 190 à 475 MAD la nuit pour une chambre double." },
+      { name: "Riad ou hôtel de charme", tier: "confort", pricePerNight: 600, priceRange: [475, 760], description: "Riad restauré ou hôtel confortable, près de la médina et de la kasbah. Comptez environ 475 à 760 MAD la nuit pour une chambre double." },
+      { name: "Hôtel 5 étoiles", tier: "luxe", pricePerNight: 1500, priceRange: [950, 1900], description: "Grand hôtel haut de gamme avec spa et restaurants. Comptez environ 950 à 1900 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Kasbah des Oudayas & musée des Bijoux", price: 60, duration: "2h", category: "Culture", description: "Forteresse du 12e siècle face à l'Atlantique. L'accès à la kasbah et aux jardins andalous est gratuit, le musée national des Bijoux est payant (environ 60 MAD)." },
@@ -212,11 +187,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/35871028/pexels-photo-35871028.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Plage d'Agadir", "Kasbah Agadir Oufella", "Marina d'Agadir", "Vallée du Paradis"],
     bestTime: "Toute l'année",
-    avgDailyBudget: { economique: 300, confort: 650, luxe: 1700 },
     hotels: [
-      { name: "Résidence Soleil", tier: "economique", pricePerNight: 280, rating: 4.0, description: "Résidence simple à 5 minutes de la plage." },
-      { name: "Hôtel Marina Confort", tier: "confort", pricePerNight: 620, rating: 4.4, description: "Hôtel avec piscine, proche de la marina et de la plage." },
-      { name: "Resort All-Inclusive Luxe", tier: "luxe", pricePerNight: 2100, rating: 4.7, description: "Resort 5 étoiles tout compris avec spa et accès plage privée." },
+      { name: "Hôtel simple", tier: "economique", pricePerNight: 300, priceRange: [190, 475], description: "Hôtel de catégorie économique, à quelques rues de la plage. Comptez environ 190 à 475 MAD la nuit pour une chambre double." },
+      { name: "Hôtel 4 étoiles", tier: "confort", pricePerNight: 600, priceRange: [475, 760], description: "Hôtel en bord de mer avec piscine. Comptez environ 475 à 760 MAD la nuit pour une chambre double." },
+      { name: "Resort 5 étoiles", tier: "luxe", pricePerNight: 1500, priceRange: [950, 1900], description: "Resort haut de gamme en bord de mer, avec spa et plusieurs restaurants. Comptez environ 950 à 1900 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Journée plage & sports nautiques", price: 200, duration: "Journée", category: "Sport", description: "Jet-ski, banane tractée et parasol inclus." },
@@ -236,11 +210,10 @@ export const cities: City[] = [
       "https://images.pexels.com/photos/12214734/pexels-photo-12214734.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
     highlights: ["Dunes de l'Erg Chebbi", "Bivouac désertique", "Lever de soleil en dromadaire", "Oasis de Khamlia"],
     bestTime: "Oct - Avril",
-    avgDailyBudget: { economique: 350, confort: 700, luxe: 1900 },
     hotels: [
-      { name: "Camp Désert Simple", tier: "economique", pricePerNight: 300, rating: 4.2, description: "Bivouac simple avec tentes berbères partagées et dîner traditionnel." },
-      { name: "Camp de Luxe Confort", tier: "confort", pricePerNight: 750, rating: 4.6, description: "Tentes confortables avec salle de bain privée au milieu des dunes." },
-      { name: "Désert Palace Luxe", tier: "luxe", pricePerNight: 2300, rating: 4.9, description: "Camp de luxe avec tentes privatives climatisées, piscine et spa dans le désert." },
+      { name: "Auberge ou chambre chez l'habitant", tier: "economique", pricePerNight: 250, priceRange: [150, 350], description: "Chambre simple dans un village près des dunes de l'Erg Chebbi. Comptez environ 150 à 350 MAD la nuit pour une chambre double." },
+      { name: "Kasbah-hôtel ou camp de charme", tier: "confort", pricePerNight: 600, priceRange: [475, 760], description: "Kasbah-hôtel avec piscine ou camp confortable au pied des dunes. Comptez environ 475 à 760 MAD la nuit pour une chambre double." },
+      { name: "Camp de luxe sous tente", tier: "luxe", pricePerNight: 1500, priceRange: [1200, 2400], description: "Tente aménagée avec salle de bain privée au cœur des dunes. Le dîner est souvent inclus. Comptez environ 1200 à 2400 MAD la nuit pour une chambre double." },
     ],
     activities: [
       { name: "Trek en dromadaire au coucher du soleil", price: 250, duration: "2h", category: "Aventure", description: "Traversée des dunes de l'Erg Chebbi au coucher du soleil." },

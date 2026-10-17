@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { City } from "../data/morocco";
+import { dailyBudgetPerPerson } from "../data/costs";
 
 export default function CityCard({ city }: { city: City }) {
   return (
@@ -38,7 +39,7 @@ export default function CityCard({ city }: { city: City }) {
           <div>
             <p className="text-xs text-stone-400">Budget / jour dès</p>
             <p className="text-lg font-bold text-stone-900">
-              {city.avgDailyBudget.economique} <span className="text-xs font-semibold text-stone-400">MAD</span>
+              ≈ {dailyBudgetPerPerson(city, "economique")} <span className="text-xs font-semibold text-stone-400">MAD</span>
             </p>
           </div>
           <span className="inline-flex items-center gap-1 text-sm font-bold text-amber-700 transition group-hover:gap-2">
