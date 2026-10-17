@@ -171,10 +171,9 @@ export const cities: City[] = [
       { name: "Four Seasons Style Luxe", tier: "luxe", pricePerNight: 2500, rating: 4.9, description: "Hôtel 5 étoiles vue mer avec spa, rooftop et restaurants gastronomiques." },
     ],
     activities: [
-      { name: "Visite guidée de la Mosquée Hassan II", price: 150, duration: "1h30", category: "Culture", description: "L'une des plus grandes mosquées du monde, avec minaret de 210m." },
+      { name: "Visite guidée de la Mosquée Hassan II", price: 140, duration: "1h", category: "Culture", description: "Visite guidée officielle, obligatoire pour les non-musulmans, d'environ 45 minutes. Le tarif adulte étranger est de 130 à 140 MAD selon la page officielle." },
       { name: "Balade sur la Corniche", price: 0, duration: "2h", category: "Détente", description: "Promenade en bord de mer, cafés et restaurants face à l'Atlantique." },
       { name: "Shopping au Morocco Mall", price: 0, duration: "3h", category: "Shopping", description: "Plus grand centre commercial d'Afrique avec aquarium géant." },
-      { name: "Sortie vie nocturne & rooftop", price: 300, duration: "Soirée", category: "Divertissement", description: "Bars rooftop et clubs branchés du quartier Gauthier." },
     ],
   },
   {
@@ -195,10 +194,10 @@ export const cities: City[] = [
       { name: "Sofitel Style Luxe", tier: "luxe", pricePerNight: 2000, rating: 4.8, description: "Hôtel 5 étoiles au cœur de la capitale avec spa et piscine extérieure." },
     ],
     activities: [
-      { name: "Visite de la Kasbah des Oudayas", price: 60, duration: "2h", category: "Culture", description: "Jardins andalous, ruelles bleues et vue sur l'océan." },
+      { name: "Kasbah des Oudayas & musée des Bijoux", price: 60, duration: "2h", category: "Culture", description: "Forteresse du 12e siècle face à l'Atlantique. L'accès à la kasbah et aux jardins andalous est gratuit, le musée national des Bijoux est payant (environ 60 MAD)." },
       { name: "Tour Hassan & Mausolée Mohammed V", price: 0, duration: "1h", category: "Histoire", description: "Monuments emblématiques de la capitale, entrée libre." },
-      { name: "Balade en bateau sur le Bouregreg", price: 120, duration: "1h", category: "Détente", description: "Traversée entre Rabat et Salé en bateau traditionnel." },
-      { name: "Visite du musée Mohammed VI d'art moderne", price: 60, duration: "1h30", category: "Art", description: "Collection d'art marocain moderne et contemporain." },
+      { name: "Balade en barque sur le Bouregreg", price: 50, duration: "30 min", category: "Détente", description: "Promenade en barque traditionnelle sur le fleuve, de 30 à 100 MAD selon la durée, à négocier sur place. La simple traversée Rabat-Salé coûte 2,5 MAD." },
+      { name: "Visite du musée Mohammed VI d'art moderne", price: 60, duration: "1h30", category: "Art", description: "Musée d'art moderne et contemporain, fermé le mardi. Le tarif d'entrée observé va de 20 à 60 MAD selon la source et la date." },
     ],
   },
   {

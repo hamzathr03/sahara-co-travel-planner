@@ -37,3 +37,24 @@ Note : la meilleure période (mars-mai et septembre-novembre) est une recommanda
 | Atelier tissage berbère | 450 MAD | ≈ 450 – 470 MAD | Offre Expedia / Travelocity (47 à 49 USD, environ 80 minutes de pratique). |
 
 Note : les périodes recommandées de Fès et Chefchaouen (avril-juin, septembre-octobre) sont des recommandations courantes, non sourcées individuellement.
+
+## Casablanca
+
+| Activité | Prix retenu | Fourchette observée | Sources / remarques |
+|---|---|---|---|
+| Visite guidée de la Mosquée Hassan II | 140 MAD | 130 à 140 MAD (adulte étranger) | Pages officielles de la Fondation de la Mosquée Hassan II (deux versions : 130 et 140 MAD), guides Barceló, AAA. La visite guidée est obligatoire pour les non-musulmans, environ 45 min. |
+| Balade sur la Corniche | 0 MAD | Accès libre | Inchangé. |
+| Shopping au Morocco Mall | 0 MAD | Entrée libre, achats en plus | Inchangé, non vérifié individuellement. |
+
+Activité retirée : « Sortie vie nocturne & rooftop » (300 MAD), aucun prix vérifiable.
+
+## Rabat
+
+| Activité | Prix retenu | Fourchette observée | Sources / remarques |
+|---|---|---|---|
+| Kasbah des Oudayas & musée des Bijoux | 60 MAD | Kasbah et jardins gratuits, musée des Bijoux ≈ 60 MAD | Blog Malika in Morocco et guide de visite de Rabat : jardins andalous gratuits, musée à 60 MAD, fermé le mardi. |
+| Tour Hassan & Mausolée Mohammed V | 0 MAD | Généralement gratuit | Guide Hertz Maroc : entrée en général libre, un petit droit peut être demandé pour le mausolée. Une source isolée mentionne 80 MAD (non retenue). |
+| Balade en barque sur le Bouregreg | 50 MAD | 30 à 100 MAD (barque traditionnelle), traversée Rabat-Salé 2,5 MAD, visite privée en bateau à partir de ≈ 620 MAD | Dépêche AFP et Le360 (traversée), avis visiteurs Wanderlog, Le Matin (promenade 30 à 100 MAD), offre Travelocity (65 USD, privée). |
+| Musée Mohammed VI d'art moderne | 60 MAD | 20 à 60 MAD selon la date et la source | Avis Wanderlog (tarif normal 60 MAD, étudiants 30 MAD), guides de visite (20, 30 et 40 MAD). Fermé le mardi. |
+
+Note : l'entrée du site de Chellah n'a pas été ajoutée, les sources divergent (10 à 70 MAD).
