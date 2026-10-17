@@ -58,3 +58,31 @@ Activité retirée : « Sortie vie nocturne & rooftop » (300 MAD), aucun prix v
 | Musée Mohammed VI d'art moderne | 60 MAD | 20 à 60 MAD selon la date et la source | Avis Wanderlog (tarif normal 60 MAD, étudiants 30 MAD), guides de visite (20, 30 et 40 MAD). Fermé le mardi. |
 
 Note : l'entrée du site de Chellah n'a pas été ajoutée, les sources divergent (10 à 70 MAD).
+
+## Essaouira
+
+| Activité | Prix retenu | Fourchette observée | Sources / remarques |
+|---|---|---|---|
+| Cours de surf | 350 MAD | ≈ 270 – 550 MAD (2 h, groupe) | Offres Expedia / Travelocity (33 à 41 USD), CheckYeti (50 EUR). |
+| Cours de kitesurf (nouveau) | 820 MAD | ≈ 820 MAD en groupe, ≈ 1 090 MAD semi-privé, ≈ 1 640 MAD privé | GetMyBoat (75, 100 et 150 EUR pour 2 h). Ancienne activité « surf ou kitesurf » à 350 MAD : le kitesurf coûte beaucoup plus cher. |
+| Balade en chameau sur la plage | 220 MAD | 150 – 250 MAD l'heure, ≈ 220 MAD (1 h) et ≈ 330 MAD (2 h) en ligne | Expedia (23 et 35 USD), guide TravelGoEat. À négocier avant de monter. |
+| Visite des remparts & port | 50 MAD | Skala du Port : 30 à 60 MAD (sources récentes), 10 MAD (sources anciennes) ; Skala de la Ville gratuite | Guides Nomadotravel, Passporter, The Poor Traveler. |
+| Fruits de mer au port | 120 MAD | 80 – 150 MAD le plat | Guides Nomadotravel et TravelGoEat. Prix à convenir avant de s'asseoir. |
+
+## Agadir
+
+| Activité | Prix retenu | Fourchette observée | Sources / remarques |
+|---|---|---|---|
+| Excursion vallée du Paradis | 220 MAD | ≈ 140 – 230 MAD (petit groupe), ≈ 760 MAD (offre premium) | Offres Expedia / Travelocity (15 à 24 USD), frais d'entrée ≈ 3 USD sur place, déjeuner ≈ 10 USD en option. |
+| Golf sur parcours 18 trous | 700 MAD | 595 – 850 MAD | 1golf.eu : Golf du Soleil (595 à 850), Golf Les Dunes (700), Golf de l'Océan (≈ 79 EUR). Matériel en supplément. |
+
+Non vérifiés (anciennes valeurs conservées) : Journée plage & sports nautiques (200 MAD), Visite de la Kasbah Agadir Oufella (50 MAD).
+
+## Merzouga
+
+| Activité | Prix retenu | Fourchette observée | Sources / remarques |
+|---|---|---|---|
+| Nuit en bivouac avec dîner | 900 MAD | ≈ 700 – 1 100 MAD (camp standard), ≈ 1 200 – 1 400 MAD (camp de luxe) | Offres Expedia / Travelocity (75 à 112 USD standard, 125 à 150 USD luxe). Le trajet en dromadaire est inclus. |
+| Balade en quad (nouveau) | 490 MAD | ≈ 45 EUR par personne (1 h) | Offre Lokalee. |
+
+Non vérifiés (anciennes valeurs conservées) : Trek en dromadaire au coucher du soleil (250 MAD), Sandboard sur les dunes (150 MAD), Excursion 4x4 dans le désert (450 MAD). Le sandboard est souvent inclus dans la nuit en bivouac.

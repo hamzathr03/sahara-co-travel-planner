@@ -147,10 +147,11 @@ export const cities: City[] = [
       { name: "Villa Ocean Luxe", tier: "luxe", pricePerNight: 1700, rating: 4.8, description: "Villa de luxe en bord de plage avec piscine chauffée et spa." },
     ],
     activities: [
-      { name: "Cours de surf ou kitesurf", price: 350, duration: "2h", category: "Sport", description: "Initiation encadrée par des moniteurs professionnels." },
-      { name: "Balade en chameau sur la plage", price: 250, duration: "1h30", category: "Aventure", description: "Promenade à dos de chameau au coucher du soleil." },
-      { name: "Visite des remparts & port", price: 90, duration: "2h", category: "Culture", description: "Découverte de la Skala de la ville et du port de pêche animé." },
-      { name: "Dégustation de fruits de mer au port", price: 180, duration: "1h", category: "Gastronomie", description: "Poisson grillé fraîchement pêché, choisi directement sur l'étal." },
+      { name: "Cours de surf", price: 350, duration: "2h", category: "Sport", description: "Cours collectif de 2 heures, planche et combinaison fournies. Comptez 270 à 550 MAD selon l'école et la taille du groupe." },
+      { name: "Balade en chameau sur la plage", price: 220, duration: "1h", category: "Aventure", description: "Balade à dos de chameau le long de la plage, vers Diabat. Comptez 150 à 250 MAD l'heure, à négocier avant de monter." },
+      { name: "Visite des remparts & port", price: 50, duration: "2h", category: "Culture", description: "La Skala de la Ville est gratuite, la Skala du Port est payante (30 à 60 MAD selon les sources récentes). Le marché aux poissons est en accès libre." },
+      { name: "Dégustation de fruits de mer au port", price: 120, duration: "1h", category: "Gastronomie", description: "Poisson et fruits de mer grillés sur les étals du port. Un plat coûte de 80 à 150 MAD, à convenir avant de s'asseoir." },
+      { name: "Cours de kitesurf", price: 820, duration: "2h", category: "Sport", description: "Cours collectif de 2 heures (4 personnes maximum), équipement et assurance inclus. Le vent est fort d'avril à octobre. Un cours privé coûte environ 1 600 MAD." },
     ],
   },
   {
@@ -219,8 +220,8 @@ export const cities: City[] = [
     ],
     activities: [
       { name: "Journée plage & sports nautiques", price: 200, duration: "Journée", category: "Sport", description: "Jet-ski, banane tractée et parasol inclus." },
-      { name: "Excursion vallée du Paradis", price: 280, duration: "Demi-journée", category: "Nature", description: "Randonnée et baignade dans les piscines naturelles." },
-      { name: "Golf sur parcours 18 trous", price: 500, duration: "Demi-journée", category: "Sport", description: "Parcours de golf avec vue sur l'océan Atlantique." },
+      { name: "Excursion vallée du Paradis", price: 220, duration: "Demi-journée", category: "Nature", description: "Départ de l'hôtel, marche et baignade dans les bassins naturels. Comptez 140 à 230 MAD en petit groupe, plus environ 30 MAD de frais à payer sur place. Déjeuner en option." },
+      { name: "Golf sur parcours 18 trous", price: 700, duration: "Demi-journée", category: "Sport", description: "Droit de jeu pour 18 trous, de 595 à 850 MAD selon le parcours (Golf du Soleil, Golf Les Dunes, Golf de l'Océan). Location du matériel en supplément." },
       { name: "Visite de la Kasbah Agadir Oufella", price: 50, duration: "1h30", category: "Histoire", description: "Vue panoramique sur la ville et la baie d'Agadir." },
     ],
   },
@@ -243,9 +244,10 @@ export const cities: City[] = [
     ],
     activities: [
       { name: "Trek en dromadaire au coucher du soleil", price: 250, duration: "2h", category: "Aventure", description: "Traversée des dunes de l'Erg Chebbi au coucher du soleil." },
-      { name: "Nuit en bivouac avec dîner & musique", price: 400, duration: "Nuit", category: "Expérience", description: "Dîner traditionnel, musique gnaoua autour du feu et nuit sous les étoiles." },
+      { name: "Nuit en bivouac avec dîner & musique", price: 900, duration: "Nuit", category: "Expérience", description: "Trajet en dromadaire jusqu'au camp, nuit sous tente, dîner et petit-déjeuner. Comptez 700 à 1 100 MAD en camp standard et 1 200 à 1 400 MAD en camp de luxe." },
       { name: "Sandboard sur les dunes", price: 150, duration: "2h", category: "Sport", description: "Glisse sur les dunes de sable, sensations garanties." },
       { name: "Excursion 4x4 dans le désert", price: 450, duration: "Demi-journée", category: "Aventure", description: "Exploration des oasis, fossiles et villages berbères en 4x4." },
+      { name: "Balade en quad dans les dunes", price: 490, duration: "1h", category: "Aventure", description: "Balade guidée d'environ 1 heure dans les dunes de l'Erg Chebbi, pour environ 45 € par personne." },
     ],
   },
 ];
