@@ -1,4 +1,5 @@
 import { cityCoords } from "../data/coordinates";
+import { roadLeg } from "../data/distances";
 import type { TripStop } from "../context/TripContext";
 
 export interface Leg {
@@ -8,7 +9,8 @@ export interface Leg {
   minutes: number;
 }
 
-// Rough estimates: straight-line distance + a margin for winding roads, at an average speed.
+// Road distances and times come from the guides in data/distances.ts. For any pair missing there,
+// fall back to a rough estimate: straight-line distance + a margin for winding roads, at an average speed.
 const ROAD_FACTOR = 1.25;
 const AVG_SPEED_KMH = 75;
 
@@ -22,6 +24,8 @@ function haversineKm(a: [number, number], b: [number, number]): number {
 }
 
 export function estimateLeg(fromId: string, toId: string): Leg | null {
+  const known = roadLeg(fromId, toId);
+  if (known) return { fromId, toId, km: known.km, minutes: known.minutes };
   const a = cityCoords[fromId];
   const b = cityCoords[toId];
   if (!a || !b) return null;

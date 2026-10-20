@@ -112,3 +112,33 @@ Sources des fourchettes générales (guides de voyage 2026) :
 Limites : les guides donnent des fourchettes par gamme et non par ville. Marrakech, Fès, Chefchaouen et Casablanca ont des chiffres ou des remarques propres ; **Essaouira, Rabat, Agadir et Merzouga reprennent la fourchette générale « autres villes »** (Merzouga économique : estimation non sourcée). Le prix typique est une valeur choisie dans la fourchette.
 
 Budget par jour affiché sur les pages des villes : il est maintenant **calculé** (moitié d'une chambre double + repas + transport local, par personne) avec les mêmes hypothèses que le planificateur de budget, au lieu des anciennes valeurs saisies à la main.
+
+## Distances et durées de route entre les villes
+
+Les 28 trajets entre les 8 villes sont maintenant définis dans `src/data/distances.ts` (distance par la route en km, durée de conduite en minutes), à la place de l'ancienne estimation « ligne droite + 25 % » (par exemple Marrakech - Fès : 480 km au lieu de ≈ 530 km).
+
+**17 trajets issus de guides de voyage** (distance et durée données en fourchette : j'ai pris le milieu de la fourchette de durée) :
+
+| Trajet | Distance | Durée retenue | Sources |
+|---|---|---|---|
+| Casablanca - Marrakech | 240 km | 2 h 45 | Simply Morocco |
+| Casablanca - Fès | 295 km | 3 h 45 | Simply Morocco, KimKim (294 km) |
+| Casablanca - Chefchaouen | 338 km | 5 h 30 | Simply Morocco (336 à 340 km) |
+| Casablanca - Rabat | 88 km | 1 h | Simply Morocco, KimKim (87 km) |
+| Casablanca - Essaouira | 372 km | 4 h 15 | KimKim |
+| Marrakech - Fès | 530 km | 6 h 40 | Simply Morocco |
+| Marrakech - Chefchaouen | 573 km | 8 h 30 | Simply Morocco (570 à 575 km) |
+| Marrakech - Agadir | 250 km | 3 h | Simply Morocco |
+| Marrakech - Merzouga | 560 km | 9 h 30 | Simply Morocco |
+| Marrakech - Rabat | 323 km | 3 h 45 | KimKim (distance) ; durée = Marrakech-Casablanca + Casablanca-Rabat |
+| Marrakech - Essaouira | 180 km | 2 h 30 | KimKim (180 à 191 km) |
+| Fès - Chefchaouen | 200 km | 3 h 45 | Simply Morocco |
+| Fès - Rabat | 207 km | 2 h 30 | KimKim |
+| Fès - Merzouga | 463 km | 6 h 40 | KimKim (distance) ; durée estimée |
+| Rabat - Chefchaouen | 250 km | 4 h 30 | Simply Morocco |
+| Agadir - Essaouira | 175 km | 3 h | KimKim |
+| Essaouira - Chefchaouen | 680 km | 8 h 50 | Rome2Rio |
+
+**11 trajets calculés** en additionnant des trajets sourcés via une ville-relais (la route directe peut être plus courte) : Casablanca - Agadir (via Marrakech), Casablanca - Merzouga (via Fès), Rabat - Agadir, Rabat - Essaouira, Rabat - Merzouga, Fès - Essaouira, Fès - Agadir, Chefchaouen - Agadir, Chefchaouen - Merzouga, Essaouira - Merzouga, Agadir - Merzouga.
+
+Les durées sont des durées de conduite sans pauses ni circulation. Un trajet sur route de montagne (Fès - Chefchaouen, vers Merzouga) est plus long que la distance ne le laisse penser.
