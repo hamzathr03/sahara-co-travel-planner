@@ -5,6 +5,7 @@ import { useTrip } from "../context/TripContext";
 import SaveTrip from "../components/SaveTrip";
 import { formatDuration, formatLeg, getLegs, sumLegs } from "../utils/route";
 import Programme from "../components/Programme";
+import CityImage from "../components/CityImage";
 import { cn } from "../utils/cn";
 
 export default function TripPlanner() {
@@ -76,7 +77,7 @@ export default function TripPlanner() {
                           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stone-900 text-sm font-bold text-white">
                             {i + 1}
                           </span>
-                          <img src={city.image} alt={city.name} className="h-12 w-16 rounded-lg object-cover" />
+                          <CityImage city={city} className="h-12 w-16 rounded-lg object-cover" />
                           <div>
                             <p className="font-bold text-stone-900">{city.name}</p>
                             <p className="text-xs text-stone-400">{city.region}</p>

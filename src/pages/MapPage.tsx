@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CityMap from "../components/CityMap";
+import CityImage from "../components/CityImage";
 import { cities, getCityById } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
 import { formatDuration, formatLeg, getLegs, sumLegs } from "../utils/route";
@@ -88,7 +89,7 @@ export default function MapPage() {
 
           {city ? (
             <div className="mt-6">
-              <img src={city.image} alt={city.name} className="h-40 w-full rounded-xl object-cover" />
+              <CityImage city={city} className="h-40 w-full rounded-xl object-cover" />
               <h2 className="mt-4 font-serif text-2xl font-bold text-stone-900">{city.name}</h2>
               <p className="text-sm text-stone-400">{city.region}</p>
               <p className="mt-3 text-sm leading-relaxed text-stone-600">{city.tagline}</p>

@@ -41,8 +41,11 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/20895317/pexels-photo-20895317.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=2000"
-            alt="Marché marocain animé"
+            src={`${import.meta.env.BASE_URL}images/hero.jpg`}
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+            alt="Paysage du Maroc"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-stone-950/90 via-stone-900/75 to-amber-900/60" />

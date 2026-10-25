@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { City } from "../data/morocco";
 import { dailyBudgetPerPerson } from "../data/costs";
+import CityImage from "./CityImage";
 
 export default function CityCard({ city }: { city: City }) {
   return (
@@ -9,10 +10,8 @@ export default function CityCard({ city }: { city: City }) {
       className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md shadow-stone-900/5 ring-1 ring-stone-100 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-amber-900/15"
     >
       <div className="relative h-56 w-full overflow-hidden">
-        <img
-          src={city.image}
-          alt={city.name}
-          loading="lazy"
+        <CityImage
+          city={city}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />

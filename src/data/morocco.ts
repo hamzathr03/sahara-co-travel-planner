@@ -35,6 +35,9 @@ export const tierLabels: Record<HotelTier, string> = {
   luxe: "Luxe",
 };
 
+// Photos live in public/images/cities/<city id>.jpg
+const cityImage = (id: string) => `${import.meta.env.BASE_URL}images/cities/${id}.jpg`;
+
 export const cities: City[] = [
   {
     id: "marrakech",
@@ -43,8 +46,7 @@ export const cities: City[] = [
     tagline: "La ville rouge, cœur battant du Maroc",
     description:
       "Marrakech envoûte avec sa médina classée à l'UNESCO, la place Jemaa el-Fna, ses souks colorés et ses jardins somptueux. Entre riads traditionnels et rooftops branchés, la ville rouge mélange tradition et modernité.",
-    image:
-      "https://images.pexels.com/photos/25489943/pexels-photo-25489943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("marrakech"),
     highlights: ["Jemaa el-Fna", "Jardin Majorelle", "Médina & Souks", "Palais Bahia"],
     bestTime: "Mars - Mai / Sept - Nov",
     hotels: [
@@ -68,8 +70,7 @@ export const cities: City[] = [
     tagline: "La capitale spirituelle et culturelle",
     description:
       "Fès abrite la plus grande médina piétonne du monde. Entre tanneries ancestrales, médersas millénaires et artisanat du cuir, c'est une plongée authentique dans le Maroc médiéval.",
-    image:
-      "https://images.pexels.com/photos/38112164/pexels-photo-38112164.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("fes"),
     highlights: ["Tanneries Chouara", "Médersa Bou Inania", "Université Al Quaraouiyine", "Bab Boujloud"],
     bestTime: "Avril - Juin / Sept - Oct",
     hotels: [
@@ -91,8 +92,7 @@ export const cities: City[] = [
     tagline: "La perle bleue du Rif",
     description:
       "Nichée dans les montagnes du Rif, Chefchaouen séduit par ses ruelles bleutées, son ambiance paisible et ses paysages montagneux spectaculaires, idéale pour la photographie et la détente.",
-    image:
-      "https://images.pexels.com/photos/25070537/pexels-photo-25070537.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("chefchaouen"),
     highlights: ["Médina bleue", "Place Outa el Hammam", "Cascades d'Akchour", "Kasbah Museum"],
     bestTime: "Avril - Juin / Sept - Oct",
     hotels: [
@@ -114,8 +114,7 @@ export const cities: City[] = [
     tagline: "La cité des vents sur l'Atlantique",
     description:
       "Ancienne Mogador, Essaouira charme par ses remparts face à l'océan, son port de pêcheurs animé et son ambiance bohème. Spot mondial de surf et kitesurf, idéale pour les amateurs de fruits de mer.",
-    image:
-      "https://images.pexels.com/photos/37442059/pexels-photo-37442059.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("essaouira"),
     highlights: ["Remparts & Skala", "Port de pêche", "Plage d'Essaouira", "Médina UNESCO"],
     bestTime: "Mai - Sept",
     hotels: [
@@ -138,8 +137,7 @@ export const cities: City[] = [
     tagline: "La métropole économique moderne",
     description:
       "Casablanca, plus grande ville du Maroc, impressionne par la majestueuse mosquée Hassan II, son architecture Art déco et sa vie nocturne trépidante. Un parfait mélange entre tradition et modernité urbaine.",
-    image:
-      "https://images.pexels.com/photos/6587429/pexels-photo-6587429.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("casablanca"),
     highlights: ["Mosquée Hassan II", "Corniche d'Aïn Diab", "Quartier Habous", "Art déco du centre-ville"],
     bestTime: "Toute l'année",
     hotels: [
@@ -160,8 +158,7 @@ export const cities: City[] = [
     tagline: "La capitale royale, entre histoire et élégance",
     description:
       "Capitale administrative du Maroc, Rabat séduit par la Kasbah des Oudayas, la tour Hassan et ses larges avenues. Une ville paisible, verte et chargée d'histoire au bord de l'océan.",
-    image:
-      "https://images.pexels.com/photos/37229546/pexels-photo-37229546.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("rabat"),
     highlights: ["Kasbah des Oudayas", "Tour Hassan", "Mausolée Mohammed V", "Médina de Rabat"],
     bestTime: "Mars - Juin / Sept - Nov",
     hotels: [
@@ -183,8 +180,7 @@ export const cities: City[] = [
     tagline: "Soleil, plage et détente toute l'année",
     description:
       "Agadir est la station balnéaire préférée des familles avec sa grande plage de sable fin, son climat doux toute l'année et ses nombreuses activités nautiques et golfiques.",
-    image:
-      "https://images.pexels.com/photos/35871028/pexels-photo-35871028.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("agadir"),
     highlights: ["Plage d'Agadir", "Kasbah Agadir Oufella", "Marina d'Agadir", "Vallée du Paradis"],
     bestTime: "Toute l'année",
     hotels: [
@@ -206,8 +202,7 @@ export const cities: City[] = [
     tagline: "Au cœur des dunes de l'Erg Chebbi",
     description:
       "Merzouga est la porte d'entrée du désert du Sahara marocain. Entre dunes dorées de l'Erg Chebbi, bivouacs sous les étoiles et balades à dos de dromadaire, une aventure inoubliable au cœur du désert.",
-    image:
-      "https://images.pexels.com/photos/12214734/pexels-photo-12214734.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1200",
+    image: cityImage("merzouga"),
     highlights: ["Dunes de l'Erg Chebbi", "Bivouac désertique", "Lever de soleil en dromadaire", "Oasis de Khamlia"],
     bestTime: "Oct - Avril",
     hotels: [

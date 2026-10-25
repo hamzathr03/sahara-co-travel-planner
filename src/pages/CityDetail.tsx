@@ -5,6 +5,7 @@ import CityCard from "../components/CityCard";
 import { cities } from "../data/morocco";
 import { useTrip } from "../context/TripContext";
 import { dailyBudgetPerPerson } from "../data/costs";
+import CityImage from "../components/CityImage";
 
 const tierColors: Record<HotelTier, string> = {
   economique: "bg-emerald-50 text-emerald-700 ring-emerald-100",
@@ -27,7 +28,7 @@ export default function CityDetail() {
   return (
     <div>
       <section className="relative h-[420px] w-full overflow-hidden">
-        <img src={city.image} alt={city.name} className="h-full w-full object-cover" />
+        <CityImage city={city} eager className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-stone-950/10" />
         <div className="absolute inset-0 flex flex-col justify-end px-5 pb-12 sm:px-8">
           <div className="mx-auto w-full max-w-7xl">
