@@ -10,3 +10,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* iOS Safari zooms into form fields smaller than 16px: keep them at 16px on phones. */
+@media (max-width: 639px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}

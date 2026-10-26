@@ -92,7 +92,7 @@ export default function TripPlanner() {
                               onClick={() => setDays(s.cityId, s.days - 1)}
                               disabled={s.days <= 1}
                               aria-label={`Retirer un jour à ${city.name}`}
-                              className="h-8 w-8 rounded-full bg-stone-100 text-sm font-bold text-stone-700 hover:bg-stone-200 disabled:opacity-40"
+                              className="h-10 w-10 rounded-full bg-stone-100 sm:h-8 sm:w-8 text-sm font-bold text-stone-700 hover:bg-stone-200 disabled:opacity-40"
                             >
                               −
                             </button>
@@ -101,7 +101,7 @@ export default function TripPlanner() {
                               type="button"
                               onClick={() => setDays(s.cityId, s.days + 1)}
                               aria-label={`Ajouter un jour à ${city.name}`}
-                              className="h-8 w-8 rounded-full bg-stone-100 text-sm font-bold text-stone-700 hover:bg-stone-200"
+                              className="h-10 w-10 rounded-full bg-stone-100 sm:h-8 sm:w-8 text-sm font-bold text-stone-700 hover:bg-stone-200"
                             >
                               +
                             </button>
@@ -113,7 +113,7 @@ export default function TripPlanner() {
                               onClick={() => moveStop(s.cityId, -1)}
                               disabled={i === 0}
                               aria-label={`Placer ${city.name} plus tôt`}
-                              className="h-8 w-8 rounded-full bg-stone-100 text-sm font-bold text-stone-700 hover:bg-stone-200 disabled:opacity-30"
+                              className="h-10 w-10 rounded-full bg-stone-100 sm:h-8 sm:w-8 text-sm font-bold text-stone-700 hover:bg-stone-200 disabled:opacity-30"
                             >
                               ↑
                             </button>
@@ -122,7 +122,7 @@ export default function TripPlanner() {
                               onClick={() => moveStop(s.cityId, 1)}
                               disabled={i === stops.length - 1}
                               aria-label={`Placer ${city.name} plus tard`}
-                              className="h-8 w-8 rounded-full bg-stone-100 text-sm font-bold text-stone-700 hover:bg-stone-200 disabled:opacity-30"
+                              className="h-10 w-10 rounded-full bg-stone-100 sm:h-8 sm:w-8 text-sm font-bold text-stone-700 hover:bg-stone-200 disabled:opacity-30"
                             >
                               ↓
                             </button>

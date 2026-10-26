@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import CityMap from "../components/CityMap";
 import CityImage from "../components/CityImage";
@@ -9,6 +9,15 @@ import { cn } from "../utils/cn";
 
 export default function MapPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const panelRef = useRef<HTMLElement>(null);
+
+  // Below the "lg" breakpoint the panel sits under the map: scroll to it after a tap on the map.
+  function selectFromMap(cityId: string) {
+    setSelectedId(cityId);
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      requestAnimationFrame(() => panelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
+  }
   const { stops, addStop, removeStop } = useTrip();
 
   const city = selectedId ? getCityById(selectedId) : undefined;
@@ -28,7 +37,7 @@ export default function MapPage() {
 
       <div className="mt-10 grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <CityMap selectedId={selectedId} onSelect={setSelectedId} />
+          <CityMap selectedId={selectedId} onSelect={selectFromMap} />
           <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-stone-500">
             <li className="flex items-center gap-1.5">
               <span className="h-2.5 w-2.5 rounded-full bg-stone-500" /> Ville
@@ -68,7 +77,7 @@ export default function MapPage() {
           )}
         </div>
 
-        <aside className="rounded-2xl border border-stone-100 bg-white p-6 shadow-sm shadow-stone-900/5">
+        <aside ref={panelRef} className="scroll-mt-20 rounded-2xl border border-stone-100 bg-white p-6 shadow-sm shadow-stone-900/5">
           <div className="flex flex-wrap gap-2">
             {cities.map((c) => (
               <button

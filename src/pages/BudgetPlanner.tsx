@@ -159,7 +159,7 @@ export default function BudgetPlanner() {
                   type="button"
                   onClick={() => updateSettings({ travelers: Math.max(1, travelers - 1) })}
                   aria-label="Retirer un voyageur"
-                  className="h-9 w-9 rounded-full bg-stone-100 text-lg font-bold text-stone-700 hover:bg-stone-200"
+                  className="h-10 w-10 rounded-full bg-stone-100 text-lg font-bold text-stone-700 hover:bg-stone-200"
                 >
                   −
                 </button>
@@ -168,7 +168,7 @@ export default function BudgetPlanner() {
                   type="button"
                   onClick={() => updateSettings({ travelers: Math.min(12, travelers + 1) })}
                   aria-label="Ajouter un voyageur"
-                  className="h-9 w-9 rounded-full bg-stone-100 text-lg font-bold text-stone-700 hover:bg-stone-200"
+                  className="h-10 w-10 rounded-full bg-stone-100 text-lg font-bold text-stone-700 hover:bg-stone-200"
                 >
                   +
                 </button>

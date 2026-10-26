@@ -4,6 +4,7 @@ import { cities } from "../data/morocco";
 import { cityCoords } from "../data/coordinates";
 import { useTrip } from "../context/TripContext";
 import { formatLeg, getLegs } from "../utils/route";
+import { useMediaQuery } from "../utils/useMediaQuery";
 
 interface CityMapProps {
   selectedId: string | null;
@@ -13,6 +14,7 @@ interface CityMapProps {
 export default function CityMap({ selectedId, onSelect }: CityMapProps) {
   const { stops } = useTrip();
   const legs = getLegs(stops);
+  const isWide = useMediaQuery("(min-width: 640px)");
 
   return (
     <div className="isolate h-[60vh] min-h-[380px] overflow-hidden rounded-2xl border border-stone-100 shadow-sm shadow-stone-900/5">
@@ -46,12 +48,14 @@ export default function CityMap({ selectedId, onSelect }: CityMapProps) {
           const order = stops.findIndex((s) => s.cityId === c.id);
           const inTrip = order >= 0;
           const selected = c.id === selectedId;
+          // On small screens only the selected and planned cities keep a visible label; tap the others to see them.
+          const labelOpen = isWide || inTrip || selected;
 
           return (
             <CircleMarker
               key={c.id}
               center={position}
-              radius={selected ? 11 : 9}
+              radius={(isWide ? 9 : 12) + (selected ? 2 : 0)}
               pathOptions={{
                 color: "#ffffff",
                 weight: 2,
@@ -60,7 +64,7 @@ export default function CityMap({ selectedId, onSelect }: CityMapProps) {
               }}
               eventHandlers={{ click: () => onSelect(c.id) }}
             >
-              <Tooltip permanent direction="top" offset={[0, -8]}>
+              <Tooltip key={labelOpen ? "open" : "hover"} permanent={labelOpen} direction="top" offset={[0, -8]}>
                 {inTrip ? `${order + 1}. ${c.name}` : c.name}
               </Tooltip>
             </CircleMarker>
