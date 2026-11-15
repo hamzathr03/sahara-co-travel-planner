@@ -5,6 +5,7 @@ import { cn } from "../utils/cn";
 const links = [
   { to: "/", label: "Accueil" },
   { to: "/villes", label: "Villes" },
+  { to: "/activites", label: "Activités" },
   { to: "/carte", label: "Carte" },
   { to: "/planner", label: "Mon voyage" },
   { to: "/mes-voyages", label: "Mes voyages" },
@@ -30,7 +31,7 @@ export default function Navbar() {
           </div>
         </NavLink>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 xl:flex">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -59,7 +60,7 @@ export default function Navbar() {
           </NavLink>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 text-stone-700 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 text-stone-700 xl:hidden"
             aria-label="Menu"
             aria-expanded={open}
           >
@@ -69,7 +70,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-stone-100 bg-white px-5 py-3 lg:hidden">
+        <nav className="flex flex-col gap-1 border-t border-stone-100 bg-white px-5 py-3 xl:hidden">
           {links.map((l) => (
             <NavLink
               key={l.to}
