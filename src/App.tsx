@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -26,7 +26,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <TripProvider>
-      <HashRouter>
+      <BrowserRouter>
         <ScrollToTop />
         <div className="flex min-h-screen flex-col bg-stone-50 font-sans text-stone-900">
           <Navbar />
@@ -47,7 +47,7 @@ export default function App() {
           </main>
           <Footer />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </TripProvider>
   );
 }
