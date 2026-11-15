@@ -10,10 +10,12 @@ import MapPage from "./pages/MapPage";
 import Activities from "./pages/Activities";
 import SupabaseCheck from "./pages/SupabaseCheck";
 import MyTrips from "./pages/MyTrips";
+import Account from "./pages/Account";
 import BudgetPlanner from "./pages/BudgetPlanner";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { TripProvider } from "./context/TripContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,6 +28,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <TripProvider>
+      <AuthProvider>
       <BrowserRouter>
         <ScrollToTop />
         <div className="flex min-h-screen flex-col bg-stone-50 font-sans text-stone-900">
@@ -40,6 +43,7 @@ export default function App() {
               <Route path="/planner" element={<TripPlanner />} />
               <Route path="/budget" element={<BudgetPlanner />} />
               <Route path="/mes-voyages" element={<MyTrips />} />
+              <Route path="/compte" element={<Account />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/test-supabase" element={<SupabaseCheck />} />
               <Route path="*" element={<NotFound />} />
@@ -48,6 +52,7 @@ export default function App() {
           <Footer />
         </div>
       </BrowserRouter>
+      </AuthProvider>
     </TripProvider>
   );
 }

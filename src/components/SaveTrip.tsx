@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTrip } from "../context/TripContext";
+import { useAuth } from "../context/AuthContext";
 import { saveTrip } from "../lib/trips";
 import { supabase } from "../lib/supabase";
 
@@ -10,6 +11,8 @@ export default function SaveTrip() {
   const { stops, settings, currentTrip, setCurrentTrip, resetTrip } = useTrip();
   const [name, setName] = useState(currentTrip.name);
   const [feedback, setFeedback] = useState<Feedback>({ kind: "idle" });
+  const { user } = useAuth();
+  const hasAccount = Boolean(user && !user.is_anonymous);
 
   useEffect(() => {
     setName(currentTrip.name);
@@ -78,7 +81,17 @@ export default function SaveTrip() {
           {feedback.kind === "saved" && <p className="mt-2 text-xs text-emerald-700">Voyage enregistré ✓</p>}
           {feedback.kind === "error" && <p className="mt-2 text-xs text-red-600">{feedback.message}</p>}
           <p className="mt-2 text-[11px] leading-relaxed text-stone-400">
-            Votre voyage est lié à ce navigateur. Les comptes utilisateurs arriveront plus tard.
+            {hasAccount ? (
+              "Votre voyage est enregistré sur votre compte."
+            ) : (
+              <>
+                Votre voyage est lié à ce navigateur.{" "}
+                <Link to="/compte" className="font-semibold text-amber-700 hover:text-amber-800">
+                  Créez un compte
+                </Link>{" "}
+                pour le retrouver partout.
+              </>
+            )}
           </p>
         </>
       )}

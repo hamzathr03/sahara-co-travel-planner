@@ -67,7 +67,7 @@ export default function MyTrips() {
       <div className="text-center">
         <h1 className="font-serif text-4xl font-bold text-stone-900">Mes voyages</h1>
         <p className="mt-4 text-stone-500">
-          Retrouvez les voyages enregistrés dans ce navigateur et ouvrez-les pour continuer à les planifier.
+          Retrouvez vos voyages enregistrés et ouvrez-les pour continuer à les planifier.
         </p>
       </div>
 

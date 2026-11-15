@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "../utils/cn";
+import { useAuth } from "../context/AuthContext";
 
 const links = [
   { to: "/", label: "Accueil" },
@@ -15,6 +16,8 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
+  const accountLabel = user && !user.is_anonymous ? "Mon compte" : "Connexion";
 
   return (
     <header className="sticky top-0 z-50 border-b border-amber-900/10 bg-white/90 backdrop-blur-md">
@@ -53,8 +56,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <NavLink
+            to="/compte"
+            className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 xl:inline-block"
+          >
+            {accountLabel}
+          </NavLink>
+          <NavLink
             to="/planner"
-            className="hidden rounded-full bg-gradient-to-r from-orange-600 to-red-700 px-4 py-2 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:brightness-110 xl:inline-block"
+            className="hidden rounded-full bg-gradient-to-r from-orange-600 to-red-700 px-4 py-2 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:brightness-110 2xl:inline-block"
           >
             Planifier mon voyage
           </NavLink>
@@ -87,6 +96,18 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
+          <NavLink
+            to="/compte"
+            onClick={() => setOpen(false)}
+            className={({ isActive }) =>
+              cn(
+                "rounded-lg px-4 py-2.5 text-sm font-semibold",
+                isActive ? "bg-amber-700 text-white" : "text-stone-700 hover:bg-amber-50"
+              )
+            }
+          >
+            {accountLabel}
+          </NavLink>
         </nav>
       )}
     </header>
