@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { TripProvider } from "./context/TripContext";
 import { AuthProvider } from "./context/AuthContext";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
+    <LanguageProvider>
     <TripProvider>
       <AuthProvider>
       <BrowserRouter>
@@ -54,5 +56,6 @@ export default function App() {
       </BrowserRouter>
       </AuthProvider>
     </TripProvider>
+    </LanguageProvider>
   );
 }

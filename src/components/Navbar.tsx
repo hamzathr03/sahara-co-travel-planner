@@ -2,22 +2,25 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "../utils/cn";
 import { useAuth } from "../context/AuthContext";
-
-const links = [
-  { to: "/", label: "Accueil" },
-  { to: "/villes", label: "Villes" },
-  { to: "/activites", label: "Activités" },
-  { to: "/carte", label: "Carte" },
-  { to: "/planner", label: "Mon voyage" },
-  { to: "/mes-voyages", label: "Mes voyages" },
-  { to: "/budget", label: "Budget" },
-  { to: "/contact", label: "Contact" },
-];
+import { useLang } from "../context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
-  const accountLabel = user && !user.is_anonymous ? "Mon compte" : "Connexion";
+  const { t } = useLang();
+
+  const links = [
+    { to: "/", label: t.nav.home },
+    { to: "/villes", label: t.nav.cities },
+    { to: "/activites", label: t.nav.activities },
+    { to: "/carte", label: t.nav.map },
+    { to: "/planner", label: t.nav.trip },
+    { to: "/mes-voyages", label: t.nav.trips },
+    { to: "/budget", label: t.nav.budget },
+    { to: "/contact", label: t.nav.contact },
+  ];
+  const accountLabel = user && !user.is_anonymous ? t.nav.account : t.nav.login;
 
   return (
     <header className="sticky top-0 z-50 border-b border-amber-900/10 bg-white/90 backdrop-blur-md">
@@ -28,9 +31,7 @@ export default function Navbar() {
           </span>
           <div className="leading-tight">
             <p className="font-serif text-lg font-bold tracking-tight text-stone-900">Sahara&amp;Co</p>
-            <p className="-mt-1 text-[11px] font-medium uppercase tracking-widest text-amber-700">
-              Travel Planner Morocco
-            </p>
+            <p className="-mt-1 text-[11px] font-medium uppercase tracking-widest text-amber-700">{t.nav.brandTagline}</p>
           </div>
         </NavLink>
 
@@ -43,9 +44,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 cn(
                   "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-                  isActive
-                    ? "bg-amber-700 text-white shadow-sm"
-                    : "text-stone-700 hover:bg-amber-50 hover:text-amber-800"
+                  isActive ? "bg-amber-700 text-white shadow-sm" : "text-stone-700 hover:bg-amber-50 hover:text-amber-800"
                 )
               }
             >
@@ -55,6 +54,7 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <LanguageSwitcher className="hidden xl:flex" />
           <NavLink
             to="/compte"
             className="hidden rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 xl:inline-block"
@@ -65,12 +65,12 @@ export default function Navbar() {
             to="/planner"
             className="hidden rounded-full bg-gradient-to-r from-orange-600 to-red-700 px-4 py-2 text-sm font-bold text-white shadow-md shadow-orange-900/20 transition hover:brightness-110 2xl:inline-block"
           >
-            Planifier mon voyage
+            {t.nav.cta}
           </NavLink>
           <button
             onClick={() => setOpen((o) => !o)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-stone-200 text-stone-700 xl:hidden"
-            aria-label="Menu"
+            aria-label={t.nav.menu}
             aria-expanded={open}
           >
             {open ? "✕" : "☰"}
@@ -80,6 +80,7 @@ export default function Navbar() {
 
       {open && (
         <nav className="flex flex-col gap-1 border-t border-stone-100 bg-white px-5 py-3 xl:hidden">
+          <LanguageSwitcher className="mb-2 self-start" />
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -87,10 +88,7 @@ export default function Navbar() {
               end={l.to === "/"}
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                cn(
-                  "rounded-lg px-4 py-2.5 text-sm font-semibold",
-                  isActive ? "bg-amber-700 text-white" : "text-stone-700 hover:bg-amber-50"
-                )
+                cn("rounded-lg px-4 py-2.5 text-sm font-semibold", isActive ? "bg-amber-700 text-white" : "text-stone-700 hover:bg-amber-50")
               }
             >
               {l.label}
@@ -100,10 +98,7 @@ export default function Navbar() {
             to="/compte"
             onClick={() => setOpen(false)}
             className={({ isActive }) =>
-              cn(
-                "rounded-lg px-4 py-2.5 text-sm font-semibold",
-                isActive ? "bg-amber-700 text-white" : "text-stone-700 hover:bg-amber-50"
-              )
+              cn("rounded-lg px-4 py-2.5 text-sm font-semibold", isActive ? "bg-amber-700 text-white" : "text-stone-700 hover:bg-amber-50")
             }
           >
             {accountLabel}
