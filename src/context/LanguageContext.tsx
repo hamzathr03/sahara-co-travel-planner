@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { LANGS, LANG_META, type Lang } from "../i18n/types";
 import { getTexts, type Texts } from "../i18n";
+import { localizeCity } from "../i18n/cityData";
+import type { City } from "../data/morocco";
 
 const STORAGE_KEY = "sahara-lang";
 
@@ -22,6 +24,8 @@ interface LanguageContextValue {
   dir: "ltr" | "rtl";
   locale: string;
   formatNumber: (n: number) => string;
+  arrow: string; // points "forward" in the reading direction
+  localCity: (city: City) => City; // city with its texts in the current language
 }
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
@@ -49,7 +53,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return (
     <LanguageContext.Provider
-      value={{ lang, setLang, t: getTexts(lang), dir, locale, formatNumber: (n) => numberFormat.format(Math.round(n)) }}
+      value={{
+        lang,
+        setLang,
+        t: getTexts(lang),
+        dir,
+        locale,
+        formatNumber: (n) => numberFormat.format(Math.round(n)),
+        arrow: dir === "rtl" ? "←" : "→",
+        localCity: (city) => localizeCity(city, lang),
+      }}
     >
       {children}
     </LanguageContext.Provider>
