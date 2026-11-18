@@ -5,6 +5,8 @@ import { notFound } from "./notFound";
 import { home } from "./home";
 import { citiesPage } from "./citiesPage";
 import { cityCard } from "./cityCard";
+import { common } from "./common";
+import { cityDetail } from "./cityDetail";
 
 // Each section lives in its own file with the three languages side by side.
 // Adding a section = one import and one line below.
@@ -16,6 +18,8 @@ export function getTexts(lang: Lang) {
     home: home[lang],
     citiesPage: citiesPage[lang],
     cityCard: cityCard[lang],
+    common: common[lang],
+    cityDetail: cityDetail[lang],
   };
 }
 
